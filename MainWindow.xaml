@@ -28,8 +28,116 @@
                 </NavigationViewItem.MenuItems>
             </NavigationViewItem>
         </NavigationView.MenuItems>
-        <Frame x:Name="ContentFrame"
+        <Frame 
                HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="800*"/>
+                </Grid.RowDefinitions>
+                <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Background="#6ba8b1">
+                    <Grid>
+                        <RelativePanel>
+                            <Image Source="/Assets/logbar.png" Stretch="Uniform"  RelativePanel.AlignLeftWithPanel="True"/>
+
+                            <TextBlock Text="Auto Page" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       Foreground="WhiteSmoke" FontSize="30"/>
+                        </RelativePanel>
+                    </Grid>
+                </Border>
+                <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Background="DarkGray" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid x:FieldModifier="public" x:Name="plcConnStatus" Grid.Column="0" Background="Red">
+
+                        </Grid>
+                        <StackPanel Margin="20,0,0,0" Orientation="Horizontal" Grid.Column="1">
+
+                            <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Top" Margin="0,10,0,0">
+                                <TextBlock Foreground="LightGray" Padding="0,0,0,0" FontSize="14" FontWeight="Bold" Margin="0,0,0,0">Machine Status</TextBlock>
+                                <TextBlock Foreground="WhiteSmoke" Padding="0,0,0,0" FontSize="18" FontWeight="Bold" Margin="0,0,0,0">Not Connected To PLC</TextBlock>
+                            </StackPanel>
+
+                        </StackPanel>
+                        <Grid Margin="20,10,0,0" Grid.Column="2">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Foreground="LightGray" Padding="0,0,0,0" FontSize="14" FontWeight="Bold" Margin="0,0,0,0">Selected Recipe</TextBlock>
+                                <RelativePanel VerticalAlignment="Center" >
+
+                                    <TextBlock Foreground="WhiteSmoke" Padding="0,0,0,0" FontSize="18" FontWeight="Bold" Margin="0,0,0,0">0</TextBlock>
+                                    <DropDownButton AutomationProperties.Name="Email" Width="Auto" RelativePanel.AlignRightWithPanel="True">
+                                        <DropDownButton.Content>
+                                            <FontIcon Glyph="&#xE712;" />
+                                        </DropDownButton.Content>
+                                        <DropDownButton.Flyout>
+                                            <MenuFlyout Placement="Bottom">
+                                                <MenuFlyoutItem Text="Change">
+                                                    <MenuFlyoutItem.Icon>
+                                                        <FontIcon Glyph="&#xE8AB;" />
+                                                    </MenuFlyoutItem.Icon>
+                                                </MenuFlyoutItem>
+                                                <MenuFlyoutItem Text="Add">
+                                                    <MenuFlyoutItem.Icon>
+                                                        <FontIcon Glyph="&#xE710;" />
+                                                    </MenuFlyoutItem.Icon>
+                                                </MenuFlyoutItem>
+                                            </MenuFlyout>
+                                        </DropDownButton.Flyout>
+                                    </DropDownButton>
+                                </RelativePanel>
+                            </StackPanel>
+
+
+                        </Grid>
+                        <Grid Margin="20,10,0,0" Grid.Column="3">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Foreground="LightGray" Padding="0,0,0,0" FontSize="14" FontWeight="Bold" Margin="0,0,0,0">Shift</TextBlock>
+                                <RelativePanel VerticalAlignment="Center" >
+
+                                    <TextBlock Foreground="WhiteSmoke" Padding="0,0,0,0" FontSize="18" FontWeight="Bold" Margin="0,0,0,0">1.Shift</TextBlock>
+                                    <DropDownButton AutomationProperties.Name="Email" Width="Auto" RelativePanel.AlignRightWithPanel="True">
+                                        <DropDownButton.Content>
+                                            <FontIcon Glyph="&#xE712;" />
+                                        </DropDownButton.Content>
+                                        <DropDownButton.Flyout>
+                                            <MenuFlyout Placement="Bottom">
+                                                <MenuFlyoutItem Text="Change">
+                                                    <MenuFlyoutItem.Icon>
+                                                        <FontIcon Glyph="&#xE8AB;" />
+                                                    </MenuFlyoutItem.Icon>
+                                                </MenuFlyoutItem>
+                                                <MenuFlyoutItem Text="Add">
+                                                    <MenuFlyoutItem.Icon>
+                                                        <FontIcon Glyph="&#xE710;" />
+                                                    </MenuFlyoutItem.Icon>
+                                                </MenuFlyoutItem>
+                                            </MenuFlyout>
+                                        </DropDownButton.Flyout>
+                                    </DropDownButton>
+                                </RelativePanel>
+                            </StackPanel>
+
+
+                        </Grid>
+
+                        <Grid Grid.Column="4"  >
+                            <Button Background="Coral" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <FontIcon Glyph="&#xE836;" />
+                            </Button>
+                        </Grid>
+
+                    </Grid>
+                </Border>
+                <Frame x:Name="ContentFrame" Grid.Row="2"></Frame>
+            </Grid>
         </Frame>
     </NavigationView>
 </Window>

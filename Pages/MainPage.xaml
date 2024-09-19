@@ -46,115 +46,26 @@
             </Grid>
         </DataTemplate>
     </Page.Resources>
-    <Grid CornerRadius="10" >
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Background="DarkGray" >
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="10*"/>
-                    <ColumnDefinition Width="10*"/>
-                    <ColumnDefinition Width="10*"/>
-                    <ColumnDefinition Width="2*"/>
-                </Grid.ColumnDefinitions>
-                <Grid x:Name="plcConnStatus" Grid.Column="0" Background="Red">
-                    
-                </Grid>
-                <StackPanel Margin="20,0,0,0" Orientation="Horizontal" Grid.Column="1">
-
-                    <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Top" Margin="0,10,0,0">
-                        <TextBlock Foreground="LightGray" Padding="0,0,0,0" FontSize="14" FontWeight="Bold" Margin="0,0,0,0">Machine Status</TextBlock>
-                        <TextBlock Foreground="WhiteSmoke" Padding="0,0,0,0" FontSize="18" FontWeight="Bold" Margin="0,0,0,0">Not Connected To PLC</TextBlock>
-                    </StackPanel>
-                  
-                </StackPanel>
-                <Grid Margin="20,10,0,0" Grid.Column="2">
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Foreground="LightGray" Padding="0,0,0,0" FontSize="14" FontWeight="Bold" Margin="0,0,0,0">Selected Recipe</TextBlock>
-                        <RelativePanel VerticalAlignment="Center" >
-
-                            <TextBlock Foreground="WhiteSmoke" Padding="0,0,0,0" FontSize="18" FontWeight="Bold" Margin="0,0,0,0">0</TextBlock>
-                            <DropDownButton AutomationProperties.Name="Email" Width="Auto" RelativePanel.AlignRightWithPanel="True">
-                                <DropDownButton.Content>
-                                    <FontIcon Glyph="&#xE712;" />
-                                </DropDownButton.Content>
-                                <DropDownButton.Flyout>
-                                    <MenuFlyout Placement="Bottom">
-                                        <MenuFlyoutItem Text="Change">
-                                            <MenuFlyoutItem.Icon>
-                                                <FontIcon Glyph="&#xE8AB;" />
-                                            </MenuFlyoutItem.Icon>
-                                        </MenuFlyoutItem>
-                                        <MenuFlyoutItem Text="Add">
-                                            <MenuFlyoutItem.Icon>
-                                                <FontIcon Glyph="&#xE710;" />
-                                            </MenuFlyoutItem.Icon>
-                                        </MenuFlyoutItem>
-                                    </MenuFlyout>
-                                </DropDownButton.Flyout>
-                            </DropDownButton>
-                        </RelativePanel>
-                    </StackPanel>
-                  
-                   
-                </Grid>
-                <Grid Margin="20,10,0,0" Grid.Column="3">
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Foreground="LightGray" Padding="0,0,0,0" FontSize="14" FontWeight="Bold" Margin="0,0,0,0">Shift</TextBlock>
-                        <RelativePanel VerticalAlignment="Center" >
-
-                            <TextBlock Foreground="WhiteSmoke" Padding="0,0,0,0" FontSize="18" FontWeight="Bold" Margin="0,0,0,0">1.Shift</TextBlock>
-                            <DropDownButton AutomationProperties.Name="Email" Width="Auto" RelativePanel.AlignRightWithPanel="True">
-                                <DropDownButton.Content>
-                                    <FontIcon Glyph="&#xE712;" />
-                                </DropDownButton.Content>
-                                <DropDownButton.Flyout>
-                                    <MenuFlyout Placement="Bottom">
-                                        <MenuFlyoutItem Text="Change">
-                                            <MenuFlyoutItem.Icon>
-                                                <FontIcon Glyph="&#xE8AB;" />
-                                            </MenuFlyoutItem.Icon>
-                                        </MenuFlyoutItem>
-                                        <MenuFlyoutItem Text="Add">
-                                            <MenuFlyoutItem.Icon>
-                                                <FontIcon Glyph="&#xE710;" />
-                                            </MenuFlyoutItem.Icon>
-                                        </MenuFlyoutItem>
-                                    </MenuFlyout>
-                                </DropDownButton.Flyout>
-                            </DropDownButton>
-                        </RelativePanel>
-                    </StackPanel>
-
-
-                </Grid>
-            
-                <Grid Grid.Column="4"  >
-                    <Button Background="Coral" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <FontIcon Glyph="&#xE836;" />
-                    </Button>
-                </Grid>
-
-            </Grid>
-        </Border>
-        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Background="LightGray">
+    
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Background="LightGray">
             <RelativePanel>
                 <RelativePanel.Background>
 
                     <ImageBrush ImageSource="/Assets/st20.jpg" Stretch="Fill" />
                 </RelativePanel.Background>
                 <StackPanel Margin="5" Orientation="Horizontal" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Background="WhiteSmoke" Padding="15">
-                    <TextBlock FontSize="30" Foreground="Black" Padding="0,0,0,0" FontWeight="Bold" Margin="0,0,20,0" HorizontalAlignment="Left">Cycle time: </TextBlock>
-                    <TextBlock FontSize="30" Foreground="Black" Padding="0,0,0,0" FontWeight="Bold" Margin="0,0,0,0" HorizontalAlignment="Right">00.000</TextBlock>
+                    <TextBlock FontSize="22" Foreground="Black" Padding="0,0,0,0" FontWeight="Bold" Margin="0,0,20,0" HorizontalAlignment="Left">Cycle time: </TextBlock>
+                    <TextBlock x:Name="cycleTime" x:FieldModifier="public" FontSize="22" Foreground="Black" Padding="0,0,0,0" FontWeight="Bold" Margin="0,0,0,0" HorizontalAlignment="Right">00.000</TextBlock>
                    </StackPanel>
                 <Button Margin="5" Background="Black" Foreground="WhiteSmoke" FontSize="30" Content="States Of Door" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"></Button>
             </RelativePanel>
         </Border>
-         <Border Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" Padding="20">
+         <Border Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" Padding="20">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
@@ -165,6 +76,7 @@
                     Background="WhiteSmoke"
                     Margin="0, 0,5,0"
                     x:Name="AlarmListView"
+                          x:FieldModifier="public"
                     ItemTemplate="{StaticResource ContactListViewTemplate}"
                     BorderThickness="1"
                     BorderBrush="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"

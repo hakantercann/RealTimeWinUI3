@@ -8,6 +8,8 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,10 +26,12 @@ namespace App3.Pages
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public ObservableCollection<Alarm> alarmList;
         public MainPage()
         {
             this.InitializeComponent();
-            List<Alarm> alarmList = new List<Alarm>();
+            alarmList = new ObservableCollection<Alarm>();
+            alarmList.CollectionChanged += new NotifyCollectionChangedEventHandler(OnCollectionChanged);
             alarmList.Add(new Alarm
             {
                 Name = "Alarm1",
@@ -46,7 +50,16 @@ namespace App3.Pages
                 Name = "Alarm4",
                 Description = "ST20 kkkkkkkkkkkkkk",
             });
-            AlarmListView.ItemsSource = alarmList;
+        }
+
+        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            var a = sender;
+            foreach(Alarm item in e.NewItems)
+            {
+
+                AlarmListView.Items.Add(item);
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
